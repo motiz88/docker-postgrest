@@ -13,7 +13,7 @@ DBPASS=${DBPASS:-${POSTGRES_ENV_POSTGRES_PASSWORD:-"postgres"}}
 DBPOOL=${DBPOOL:-"200"}
 PORT=${PORT:-"3000"}
 
-V1SCHEMA=${V1SCHEMA:-"1"}
+SCHEMA=${SCHEMA:-"1"}
 
 ANONUSER=${ANONUSER:-"postgres"}
 
@@ -29,4 +29,4 @@ postgrest --db-name "$DBNAME" \
           --db-pool "$DBPOOL" \
           --port "$PORT" \
           --anonymous "$ANONUSER" \
-          --v1schema "$V1SCHEMA"
+          --schema "$SCHEMA"
