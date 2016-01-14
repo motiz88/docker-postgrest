@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# Taken from https://github.com/darrengruber/docker-postgrest
-
 set -x
 
 DBHOST=${DBHOST:-${POSTGRES_PORT_5432_TCP_ADDR:-"postgres"}}
@@ -21,12 +19,9 @@ SLEEP=${SLEEP:-"0"}
 
 sleep "$SLEEP"
 
-postgrest --db-name "$DBNAME" \
-          --db-host "$DBHOST" \
-          --db-port "$DBPORT" \
-          --db-user "$DBUSER" \
-          --db-pass "$DBPASS" \
-          --db-pool "$DBPOOL" \
+postgrest postgres://$DBUSER:$DBPASS@$DBHOST:$DBPORT/$DBNAME \
+          --pool "$DBPOOL" \
           --port "$PORT" \
           --anonymous "$ANONUSER" \
           --schema "$SCHEMA"
+
