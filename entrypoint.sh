@@ -23,7 +23,7 @@ db-uri    = postgres://${DBUSER}:${DBPASS}@${DBHOST}:${DBPORT}/${DBNAME}
 db-schema = ${SCHEMA}
 db-anon-role = ${ANONUSER}
 port         = ${PORT}
-" >> ./postgrest.conf
+EOF" >> ./postgrest.conf
 
 postgrest ./postgrest.conf
 
