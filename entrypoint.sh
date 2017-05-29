@@ -22,10 +22,7 @@ echo "db-uri    = postgres://${DBUSER}:${DBPASS}@${DBHOST}:${DBPORT}/${DBNAME}
       db-schema = ${SCHEMA}
       db-anon-role = ${ANONUSER}
       port         = ${PORT}
-" >> postgrest.conf
+" >> ./postgrest.conf
 
-postgrest postgres://$DBUSER:$DBPASS@$DBHOST:$DBPORT/$DBNAME \
-          --port "$PORT" \
-          --anonymous "$ANONUSER" \
-          --schema "$SCHEMA"
+postgrest ./postgrest.conf
 
