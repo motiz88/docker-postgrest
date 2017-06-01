@@ -18,12 +18,9 @@ SLEEP=${SLEEP:-"0"}
 
 sleep "$SLEEP"
 
-echo "
-db-uri    = postgres://${DBUSER}:${DBPASS}@${DBHOST}:${DBPORT}/${DBNAME}
-db-schema = ${SCHEMA}
-db-anon-role = ${ANONUSER}
-port         = ${PORT}
-EOF" >> ./postgrest.conf
+echo "db-uri    = \"postgres://${DBUSER}:${DBPASS}@${DBHOST}:${DBPORT}/${DBNAME}\"
+db-schema = \"${SCHEMA}\"
+db-anon-role = \"${ANONUSER}\"
+server-port         = ${PORT}" >> postgrest.conf
 
 postgrest ./postgrest.conf
-
